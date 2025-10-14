@@ -1,0 +1,36 @@
+<md-card class="screen-card">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline screen-headline">Executive Summary</span>
+      <span class="md-subhead">Share the latest migration notes with everyone.</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <form novalidate ng-submit="$ctrl.handleSummaryUpdate()" layout="column" layout-gap="16">
+      <md-input-container class="md-block">
+        <label>Summary blurb</label>
+        <textarea ng-model="$ctrl.summary" md-maxlength="540" rows="4"></textarea>
+      </md-input-container>
+      <div layout="row" layout-align="space-between center">
+        <div class="shared-indicator" ng-if="$ctrl.lastUpdated">
+          <md-icon>update</md-icon>
+          <span>Last pushed {{$ctrl.lastUpdated | date:'short'}}</span>
+        </div>
+        <md-button type="submit" class="md-raised md-primary">Update summary</md-button>
+      </div>
+    </form>
+  </md-card-content>
+  <md-divider></md-divider>
+  <md-card-content>
+    <div layout="row" layout-align="space-around center">
+      <div layout="column" layout-align="center center">
+        <span class="md-headline">{{$ctrl.wins}}</span>
+        <span class="md-subhead">Wins celebrated</span>
+      </div>
+      <div layout="column" layout-align="center center">
+        <span class="md-headline">{{$ctrl.openIncidentCount}}</span>
+        <span class="md-subhead">Open incidents</span>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

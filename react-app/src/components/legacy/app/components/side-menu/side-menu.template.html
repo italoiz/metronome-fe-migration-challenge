@@ -1,0 +1,18 @@
+<md-sidenav class="md-sidenav-left app-sidenav" md-is-locked-open="true">
+  <md-toolbar class="md-theme-indigo">
+    <h2 class="md-toolbar-tools">Navigation</h2>
+  </md-toolbar>
+  <md-content layout="column">
+    <md-list>
+      <md-list-item class="menu-item" ng-repeat="item in $ctrl.items track by item.key">
+        <md-button
+          href="/{{item.key}}	"
+          class="md-no-style"
+          ng-class="{'active': item.key === $ctrl.selected}"
+        >
+          <span class="menu-label">{{item.label}}</span>
+        </md-button>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-sidenav>

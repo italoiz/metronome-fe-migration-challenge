@@ -1,0 +1,26 @@
+<md-toolbar class="md-whiteframe-2dp app-toolbar" layout="row" layout-align="space-between center">
+  <div class="toolbar-left" layout="row" layout-align="start center" layout-gap="16">
+    <md-button class="md-icon-button" aria-label="Toggle navigation" ng-click="$ctrl.onToggle && $ctrl.onToggle()">
+      <md-icon>menu</md-icon>
+    </md-button>
+    <div class="toolbar-copy">
+      <div class="app-title">Legacy Workspace Console</div>
+      <div class="app-subtitle" ng-if="$ctrl.selectedMenu">Section: {{$ctrl.selectedMenu | uppercase}}</div>
+    </div>
+  </div>
+
+  <div class="toolbar-right" layout="row" layout-align="end center" layout-gap="24">
+    <div class="shared-indicator" ng-if="$ctrl.isLoading">
+      <md-progress-circular md-diameter="24" md-mode="indeterminate"></md-progress-circular>
+      <span>Syncing state</span>
+    </div>
+    <div class="shared-indicator" ng-if="$ctrl.maintenanceMode && !$ctrl.isLoading">
+      <md-icon>build</md-icon>
+      <span>Maintenance mode</span>
+    </div>
+    <div class="timestamp" ng-if="$ctrl.lastUpdated">
+      <md-icon>schedule</md-icon>
+      <span>Updated {{$ctrl.lastUpdated | date:'short'}}</span>
+    </div>
+  </div>
+</md-toolbar>

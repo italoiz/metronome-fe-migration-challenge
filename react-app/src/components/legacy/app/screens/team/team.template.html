@@ -1,0 +1,37 @@
+<md-card class="screen-card">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline screen-headline">Team Collaboration</span>
+      <span class="md-subhead">Capture blockers and pulse check mood.</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <md-input-container>
+      <label>Mood</label>
+      <md-select ng-model="$ctrl.teamMood" ng-change="$ctrl.handleMoodChange()">
+        <md-option value="optimistic">Optimistic</md-option>
+        <md-option value="neutral">Neutral</md-option>
+        <md-option value="concerned">Concerned</md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-divider></md-divider>
+
+    <form layout="row" layout-align="start center" ng-submit="$ctrl.handleAddBlocker()">
+      <md-input-container flex>
+        <label>New blocker</label>
+        <input ng-model="$ctrl.newBlocker" placeholder="E.g. React build overlapping with AngularJS router" />
+      </md-input-container>
+      <md-button type="submit" class="md-primary md-raised">Add</md-button>
+    </form>
+
+    <md-list ng-if="$ctrl.blockers.length">
+      <md-subheader>Captured blockers</md-subheader>
+      <md-list-item ng-repeat="blocker in $ctrl.blockers track by blocker">
+        <md-icon class="md-primary">error_outline</md-icon>
+        <p>{{blocker}}</p>
+      </md-list-item>
+    </md-list>
+    <p ng-if="!$ctrl.blockers.length" class="md-caption">No blockers reported yet.</p>
+  </md-card-content>
+</md-card>

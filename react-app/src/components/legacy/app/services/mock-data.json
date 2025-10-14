@@ -1,0 +1,13 @@
+{
+    "summary": "Legacy migration workstream health snapshot for the interview exercise.",
+    "wins": 7,
+    "openIncidentCount": 3,
+    "teamMood": "optimistic",
+    "blockers": [
+        "Finalize contract between AngularJS and React shells",
+        "Stabilize shared session handling",
+        "Audit Angular Material overrides"
+    ],
+    "maintenanceMode": false,
+    "lastUpdated": "2024-09-19T14:25:00.000Z"
+}

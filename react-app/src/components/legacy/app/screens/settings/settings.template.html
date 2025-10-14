@@ -1,0 +1,20 @@
+<md-card class="screen-card">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline screen-headline">Operations & Experiments</span>
+      <span class="md-subhead">Flip toggles to simulate migration scenarios.</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <md-switch ng-model="$ctrl.maintenanceMode" ng-change="$ctrl.handleMaintenanceToggle()">
+      Maintenance mode {{$ctrl.maintenanceMode ? 'enabled' : 'disabled'}}
+    </md-switch>
+
+    <md-divider></md-divider>
+
+    <md-button class="md-raised" ng-click="$ctrl.handleReload()" ng-disabled="$ctrl.isLoading">
+      Reload from mock API
+    </md-button>
+    <p class="md-caption">Simulates fetching shared state from the legacy API surface.</p>
+  </md-card-content>
+</md-card>

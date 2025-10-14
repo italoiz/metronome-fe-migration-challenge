@@ -1,0 +1,27 @@
+<md-card class="screen-card">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline screen-headline">Key Progress Metrics</span>
+      <span class="md-subhead">Track how far the migration milestone advanced.</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <md-icon class="md-48">leaderboard</md-icon>
+    </md-card-title-media>
+  </md-card-title>
+  <md-card-content>
+    <div layout="row" layout-align="space-around center">
+      <div layout="column" layout-align="center center">
+        <span class="md-title">{{$ctrl.wins}}</span>
+        <span class="md-caption">Wins logged</span>
+        <md-button class="md-primary" ng-click="$ctrl.increment()">Add win</md-button>
+      </div>
+      <div layout="column" layout-align="center center">
+        <span class="md-title">{{$ctrl.openIncidentCount}}</span>
+        <span class="md-caption">Open incidents</span>
+        <blockquote class="screen-note" ng-if="$ctrl.maintenanceMode">
+          <strong>Heads up:</strong> Metrics are read-only while maintenance mode is enabled.
+        </blockquote>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
