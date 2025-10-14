@@ -1,0 +1,107 @@
+/**
+ * Angular Material CSS isolated to the legacy container
+ * All Angular Material classes only affect elements inside .legacy-angular-container
+ */
+
+/* Import Angular Material */
+@import 'angular-material/angular-material.css';
+
+/* 
+ * IMPORTANT: Prefix all Angular Material rules
+ * with .legacy-angular-container for isolation
+ */
+
+/* Reset: ensure Angular Material classes do not leak */
+:root {
+  /* Remove Angular Material global variables if necessary */
+}
+
+/* Scope Angular Material classes */
+.legacy-angular-container {
+  /* Re-apply Angular Material styles only here */
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+/* ============================================
+ * RESET: .flex should follow Tailwind semantics
+ * ============================================ */
+
+/* Reset .flex GLOBALLY to Tailwind behavior */
+.flex {
+  /* Tailwind: display: flex */
+  display: flex !important;
+  /* Remove any Angular Material flex-grow/flex-shrink */
+  flex: initial !important;
+}
+
+/* ============================================
+ * ANGULAR MATERIAL: Apply only to [flex] attributes
+ * ============================================ */
+
+/* Sobrescrever APENAS elementos com atributo [flex] do AngularJS */
+.legacy-angular-container [flex],
+.legacy-angular-container [flex=""],
+.legacy-angular-container [flex="grow"],
+.legacy-angular-container [flex="initial"],
+.legacy-angular-container [flex="auto"],
+.legacy-angular-container [flex="none"],
+.legacy-angular-container [flex="noshrink"],
+.legacy-angular-container [flex="nogrow"] {
+  /* Angular Material flex behavior */
+  flex: 1 1 0% !important;
+  box-sizing: border-box;
+}
+
+/* AngularJS layouts */
+.legacy-angular-container [layout="row"],
+.legacy-angular-container .layout-row {
+  display: flex !important;
+  flex-direction: row !important;
+  box-sizing: border-box;
+}
+
+.legacy-angular-container [layout="column"],
+.legacy-angular-container .layout-column {
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box;
+}
+
+/* ============================================
+ * ENSURE: Tailwind classes work as expected
+ * ============================================ */
+
+/* Tailwind flex-* classes should work normally */
+.legacy-angular-container .flex-row {
+  flex-direction: row !important;
+}
+
+.legacy-angular-container .flex-col {
+  flex-direction: column !important;
+}
+
+.legacy-angular-container .flex-1 {
+  flex: 1 1 0% !important;
+}
+
+.legacy-angular-container .flex-auto {
+  flex: 1 1 auto !important;
+}
+
+.legacy-angular-container .flex-initial {
+  flex: 0 1 auto !important;
+}
+
+.legacy-angular-container .flex-none {
+  flex: none !important;
+}
+
+/* ============================================
+ * PROTECTION: Avoid style leakage
+ * ============================================ */
+
+/* Ensure Angular Material does NOT affect React elements */
+body:not(.legacy-angular-container) [flex] {
+  /* No effect outside the legacy container */
+  flex: initial;
+}
